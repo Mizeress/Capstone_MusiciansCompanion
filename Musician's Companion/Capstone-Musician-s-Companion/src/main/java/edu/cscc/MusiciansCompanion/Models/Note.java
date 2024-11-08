@@ -51,7 +51,7 @@ public class Note {
 			addOn = ' ';
 		}
 		
-		return String.valueOf(noteLetter + addOn);
+		return String.valueOf(noteLetter) + String.valueOf(addOn);
 	}
 	
 }

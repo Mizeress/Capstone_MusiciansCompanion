@@ -1,9 +1,5 @@
 package edu.cscc.MusiciansCompanion.Models;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 public class ChallengeSettings {
 	private Note[] homeNotes;
 	private Mode[] modes;
