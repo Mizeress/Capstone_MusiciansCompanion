@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		<h1>ChallengeGenerator</h1>
+		<a href="/MusiciansCompanion">Back</a>
+		
+		<form th:action="@{/MusiciansCompanion/Challenge}" th:object="${ChallengeSettings}" method="post">
+			<label for="Genre">Genre: </label>
+			<input th:each="genre: ${genres}" type="checkbox" id="Genre" th:text="${genre.name}" th:field=${ChallengeSettings.genres} th:value=${genre.id}>
+			<br>
+			
+			<label for="Mode">Mode: </label>
+			<input th:each="mode: ${modes}" type="checkbox" id="Mode" th:text="${mode.name}" th:field="${ChallengeSettings.modes}" th:value=${mode.id}>
+			<br>
+			
+			<label for="Mood">Mood/Emotion: </label>
+			<input th:each="mood: ${moods}" type="checkbox" id="Mood" th:text="${mood.name}" th:field="${ChallengeSettings.moods}" th:value="${mood.id}">
+			<br>
+			
+			<label for="Note">Key: </label>
+			<div th:each="note: ${notes}">
+				<input th:if="${note.isSharp}" type="checkbox" id="Note" th:text="${note.noteLetter} + '#'" th:field="${ChallengeSettings.homeNotes}" th:value="${note.id}">
+				<input th:if="${note.isFlat}" type="checkbox" id="Note" th:text="${note.noteLetter} + 'b'" th:field="${ChallengeSettings.homeNotes}" th:value="${note.id}">
+				<input th:unless="${note.isSharp || note.isFlat}" type="checkbox" id="Note" th:text="${note.noteLetter}" th:field="${ChallengeSettings.homeNotes}" th:value="${note.id}">
+			</div>
+			
+			<label for="timeSig">Time Signature: </label>
+			<input th:each="timeSig: ${timeSigs}" type="checkbox" id="timeSig" th:text="${timeSig.beatPerMeasure} + '/' + ${timeSig.beatNote}" th:field="${ChallengeSettings.timeSigs}" th:value="${timeSig.id}">
+			<button type="submit">Run</button>
+		</form>
+	</body>
+</html>

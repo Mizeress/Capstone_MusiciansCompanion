@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		<h1>Challenge</h1>
+		<a href="/MusiciansCompanion">Home</a>
+		
+		<p th:text="'Genre: ' + ${challenge.genre.name}">
+		<p th:text="'Mode: ' + ${challenge.Mode.name}">
+		<p th:text="'Mood/Emotion: ' + ${challenge.mood.name}">
+		
+		<div th:if="${challenge.homeNote.isSharp}"><p th:text="${challenge.homeNote.noteLetter} + '#'"/></div>
+		<div th:if="${challenge.homeNote.isFlat}"><p th:text="${challenge.homeNote.noteLetter} + 'b'"/></div>
+		<div th:unless="${challenge.homeNote.isSharp || challenge.homeNote.isFlat}" ><p th:text="${challenge.homeNote.noteLetter}"/></div>
+		
+		<p th:text="'Time Signature: ' + ${challenge.timeSig.beatPerMeasure} + '/' + ${challenge.timeSig.beatNote}">
+		
+	</body>
+</html>
