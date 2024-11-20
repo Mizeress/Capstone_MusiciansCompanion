@@ -93,7 +93,7 @@ public class MainController {
 	public String getMetronome() {
 		
 		
-		return "temp";
+		return "metronomePage";
 	}
 	
 	//Endpoint to enter settings for the Chord Challenge Feature
