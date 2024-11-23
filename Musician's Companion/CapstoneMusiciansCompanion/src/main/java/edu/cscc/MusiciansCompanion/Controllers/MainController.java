@@ -1,5 +1,7 @@
 package edu.cscc.MusiciansCompanion.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,9 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.cscc.MusiciansCompanion.Repositories.*;
+import lombok.extern.slf4j.Slf4j;
 import edu.cscc.MusiciansCompanion.Models.*;
+import edu.cscc.MusiciansCompanion.Models.ChordVoicingAlgorithm.Chord;
+import edu.cscc.MusiciansCompanion.Models.ChordVoicingAlgorithm.ChordVoicingAlgorithm;
+import edu.cscc.MusiciansCompanion.Models.ChordVoicingAlgorithm.ChordVoicingAlgorithmSettings;
+import edu.cscc.MusiciansCompanion.Models.ChordVoicingAlgorithm.Fretboard;
 
 @Controller
+@Slf4j
 public class MainController {
 
 	
@@ -28,6 +36,7 @@ public class MainController {
 	TimeSignatureRepository timeSigRepo;
 	@Autowired
 	ChordTypeRepository chordTypeRepo;
+	
 	
 	
 	@GetMapping("/MusiciansCompanion")
@@ -138,11 +147,55 @@ public class MainController {
 	}
 	
 	@GetMapping("/MusiciansCompanion/FindChordVoicings")
-	public String getChordVoicings() {
-		 
+	public String getChordVoicingPage(Model model) {
+		ChordVoicingAlgorithmSettings settings = new ChordVoicingAlgorithmSettings();
 		
-		return "temp";
+		model.addAttribute("settings", settings);
+				
+		
+		return "getChordVoicings";
 	}
+	
+	@PostMapping("/MusiciansCompanion/ChordVoicing")
+	public String getChordVoicings(@ModelAttribute("settings") ChordVoicingAlgorithmSettings settings, Model model, RedirectAttributes redirectAttrbs) {
+		
+		//TODO Create a chord voicing algorithm
+		
+				//Get num frets and tuning - instantiate fretboard
+				
+				//get chord and max distance - instantiate Chord Voicing Algorithm 
+		
+		String[] tuning = settings.getTuning().replaceAll("\\s", "").split(",");
+		
+		Fretboard fretboard = new Fretboard(settings.getNumFrets(), tuning);
+		
+		String[] chord = settings.getChord().replaceAll("\\s", "").split(",");
+		
+		System.out.println("chord: " + chord);
+		ChordVoicingAlgorithm cva = new ChordVoicingAlgorithm(chord, fretboard, settings.getMaxDistance());
+		System.out.println("cva: " + cva);
+		
+		
+		
+		System.out.println(cva.getVoicings().size());
+		
+		redirectAttrbs.addFlashAttribute("cva", cva);
+		
+		return "redirect:/MusiciansCompanion/ChordVoicings";
+	}
+	
+	@GetMapping("/MusiciansCompanion/ChordVoicings")
+	public String getChordVoicingPage(@ModelAttribute("cva") ChordVoicingAlgorithm cva, Model model) {
+		
+		List<Chord> chords = cva.getVoicings();
+		
+		//System.out.println(cva.voicings.size());
+		
+		model.addAttribute("chords", chords);
+		
+		return "chordVoicings";
+	}
+	
 	
 	@GetMapping("/MusiciansCompanion/AudioToRhythm")
 	public String getAudioToRhythm() {
