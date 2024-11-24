@@ -18,7 +18,8 @@
 			<br>
 		
 			<label for="chordType">Chord Types</label>
-			<input th:each="chordType : ${chordTypes}" id = "chordType" type="checkbox" th:text="${chordType.chordType}" th:field="${chordChallengeSettings.chordTypes}" th:value="${chordType.id}">
+			<input th:each="chordType : ${chordTypes}" class="ChordType" id = "chordType" type="checkbox" th:text="${chordType.chordType}" th:field="${chordChallengeSettings.chordTypes}" th:value="${chordType.id}">
+			<button type='button' class="SelectAll" id="ChordTypeSelectAll" data-target-class="ChordType" data-state="Off">Select All</button>
 			
 			<br>
 			
@@ -29,14 +30,18 @@
 			
 			<label for="Note">Root Notes: </label>
 			<div th:each="note: ${notes}">
-				<input th:if="${note.isSharp}" type="checkbox" id="Note" th:text="${note.noteLetter} + '#'" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
-				<input th:if="${note.isFlat}" type="checkbox" id="Note" th:text="${note.noteLetter} + 'b'" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
-				<input th:unless="${note.isSharp || note.isFlat}" type="checkbox" id="Note" th:text="${note.noteLetter}" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
+				<input th:if="${note.isSharp}" type="checkbox" class="Note" id="Note" th:text="${note.noteLetter} + '#'" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
+				<input th:if="${note.isFlat}" type="checkbox" class="Note" id="Note" th:text="${note.noteLetter} + 'b'" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
+				<input th:unless="${note.isSharp || note.isFlat}" type="checkbox" class="Note" id="Note" th:text="${note.noteLetter}" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
 			</div>
+			
+			<button type='button' class='SelectAll' id="NoteSelectAll" data-target-class="Note" data-state="Off">Select All</button>
 			
 			<button type="submit">Run</button>
 			
 		</form>
+		
+		<script th:src="@{/selectAll.js}"></script>
 		
 	</body>
 </html>

@@ -13,6 +13,8 @@ public class ChordVoicingAlgorithm {
 
 	private String[] chord;
 	
+	private Fretboard fretboard;
+	
 	int maxDistance; 
 	
 	public List<Chord> getVoicings() {
@@ -34,6 +36,7 @@ public class ChordVoicingAlgorithm {
 	 */
 	public ChordVoicingAlgorithm(String[] chord, Fretboard fretboard, int maxDistance) {
 		this.chord = chord;
+		this.setFretboard(fretboard);
 		this.maxDistance = maxDistance; 
 		
 		voicings = new ArrayList<>();
@@ -164,6 +167,16 @@ public class ChordVoicingAlgorithm {
 		int min = Collections.min(fretNums);
 		
 		return Math.abs(max - min);
+	}
+
+
+	public Fretboard getFretboard() {
+		return fretboard;
+	}
+
+
+	public void setFretboard(Fretboard fretboard) {
+		this.fretboard = fretboard;
 	}
 	
 	
