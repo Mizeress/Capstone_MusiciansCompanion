@@ -5,6 +5,8 @@
 	<body>
 		<h1>Chord Voicings</h1>
 	
+		<!-- TODO add some JS to integrate with the omnibrain chord chart API to display chord charts for voicings -->
+		
 		<div class="chordVoicing" th:each="chord,itrStat: ${chords}">
 			<h2 th:text="'Chord ' + ${itrStat.count}"></h2>
 		
