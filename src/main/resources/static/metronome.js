@@ -1,12 +1,13 @@
 class Metronome {
 
-    constructor(tempo = 120) {
+    constructor(tempo = 120, beatsPerBar = 6) {
         this.audioContext = null;
 
         this.notesInQueue = [];
 
         this.currentBeatInBar = 0;
-        this.beatsPerBar = 4;
+        this.beatsPerBar = beatsPerBar;
+        this.emphasizedBeats = this.getEmphasizedBeats();
         this.tempo = tempo;
 
         this.lookAhead = 25;
@@ -17,6 +18,19 @@ class Metronome {
 
         this.intervalID = null;
     }
+    
+    getEmphasizedBeats() {
+		var emphasizedBeats = [];
+		var emphasisCheckboxes = document.querySelectorAll('#emphasis-container input[type="checkbox"]');
+		
+		emphasisCheckboxes.forEach(function(checkbox) {
+			if(checkbox.checked) {
+				emphasizedBeats.push(parseInt(checkbox.dataset.beat));
+			}
+		});
+		
+		return emphasizedBeats;
+	}
 
     nextNote() {
         var secondsPerBeat = 60.0 / this.tempo;
@@ -34,7 +48,8 @@ class Metronome {
         const osc = this.audioContext.createOscillator();
         const envelope = this.audioContext.createGain();
 
-        osc.frequency.value = (beatNumber % this.beatsPerBar == 0) ? 1000 : 800;
+		this.emphasizedBeats = this.getEmphasizedBeats();
+        osc.frequency.value = (this.emphasizedBeats.includes(beatNumber)) ? 1000 : 800;
         envelope.gain.value = 1;
         envelope.gain.exponentialRampToValueAtTime(1, time + 0.001);
         envelope.gain.exponentialRampToValueAtTime(0.001, time + 0.02);
