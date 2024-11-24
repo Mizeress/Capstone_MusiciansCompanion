@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		<h1>Chord Voicings</h1>
+	
+		<!-- TODO add some JS to integrate with the omnibrain chord chart API to display chord charts for voicings -->
+		
+		<div class="chordVoicing" th:each="chord,itrStat: ${chords}">
+			<h2 th:text="'Chord ' + ${itrStat.count}"></h2>
+		
+			<div class="note" th:each="note: ${chord.chord}">
+				<p th:text="'String: ' + ${note.note[0]}"></p>
+				<p th:text="'Fret ' + ${note.note[1]}"></p>
+				<br>
+			</div>
+		
+		</div>
+	</body>
+</html>

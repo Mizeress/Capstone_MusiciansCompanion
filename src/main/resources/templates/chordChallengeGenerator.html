@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		<h1>Chord Challenge</h1>
+		<a href="/MusiciansCompanion">Home</a>
+		
+		<form th:action="@{/MusiciansCompanion/ChordChallenge}" th:object="${chordChallengeSettings}" method="post">
+			<label for="guitar">Guitar</label>
+			<input type="radio" id="guitar" name="type" th:field="${chordChallengeSettings.type}" value="GUITAR">
+			
+			<br>
+			
+			<label for="keyboard">Keyboard</label>
+			<input type="radio" id="keyboard" name="type" th:field="${chordChallengeSettings.type}" value="KEYBOARD">
+			
+			<br>
+		
+			<label for="chordType">Chord Types</label>
+			<input th:each="chordType : ${chordTypes}" class="ChordType" id = "chordType" type="checkbox" th:text="${chordType.chordType}" th:field="${chordChallengeSettings.chordTypes}" th:value="${chordType.id}">
+			<button type='button' class="SelectAll" id="ChordTypeSelectAll" data-target-class="ChordType" data-state="Off">Select All</button>
+			
+			<br>
+			
+			<label for="numRootPositions">Number of Strings your Guitar has OR number of Octaves your keyboard has</label>
+			<input type="number" id="numRootPositions" th:field="${chordChallengeSettings.num}">
+			
+			<br>
+			
+			<label for="Note">Root Notes: </label>
+			<div th:each="note: ${notes}">
+				<input th:if="${note.isSharp}" type="checkbox" class="Note" id="Note" th:text="${note.noteLetter} + '#'" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
+				<input th:if="${note.isFlat}" type="checkbox" class="Note" id="Note" th:text="${note.noteLetter} + 'b'" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
+				<input th:unless="${note.isSharp || note.isFlat}" type="checkbox" class="Note" id="Note" th:text="${note.noteLetter}" th:field="${chordChallengeSettings.notes}" th:value="${note.id}">
+			</div>
+			
+			<button type='button' class='SelectAll' id="NoteSelectAll" data-target-class="Note" data-state="Off">Select All</button>
+			
+			<button type="submit">Run</button>
+			
+		</form>
+		
+		<script th:src="@{/selectAll.js}"></script>
+		
+	</body>
+</html>
