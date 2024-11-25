@@ -1,23 +1,38 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 	<head>
-	</head>
+		<link rel="stylesheet" th:href="@{/mainstyle.css}">
 	<body>
-		<h1>Musician's Companion</h1>
-		<ul>
-			<li><a href="/MusiciansCompanion/ChallengeGenerator">Challenge Generator</a></li>
-			<li><a href="/MusiciansCompanion/ChordChallengeGenerator">Chord Challenge</a></li>
-			<li><a href="/MusiciansCompanion/Metronome">Metronome</a></li>
-			<li><a href="/MusiciansCompanion/FindChordVoicings">Find Chord Voicings for Guitar</a></li>
-		</ul>
+		<h1 id="Title">Musician's Companion</h1>
 		
-		<h2>Coming Soon</h2>
-		<ul>
-			<li><a href="/MusiciansCompanion/Looper">Looper</a></li>
-			<li><a href="/MusiciansCompanion/Notation">Tabbing/Music Notation</a></li>
-			<li><a href="/MusiciansCompanion/AudioToRhythm">Convert Audio to Rhythm</a></li>
+		<div class="completed-features">
+			<div class="feature">
+				<a href="/MusiciansCompanion/ChallengeGenerator">Challenge Generator</a>
+			</div>
 			
-			<li><a href="/MusiciansCompanion/DrumMachine">DrumMachine</a></li>
-		</ul>
+			<div class="feature">
+			<a href="/MusiciansCompanion/ChordChallengeGenerator" >Chord Challenge</a>
+			</div>
+			
+			<div class="feature">
+			<a href="/MusiciansCompanion/Metronome">Metronome</a>
+			</div>
+			
+			<div class="feature">
+			<a href="/MusiciansCompanion/FindChordVoicings">Find Chord Voicings for Guitar</a>
+			</div>
+			
+		</div>
+		
+		<div class="incomplete-features">
+			<h2>Coming Soon</h2>
+			<ul>
+				<li><a href="/MusiciansCompanion/Looper" class="Feature">Looper</a></li>
+				<li><a href="/MusiciansCompanion/Notation" class="Feature">Tabbing/Music Notation</a></li>
+				<li><a href="/MusiciansCompanion/AudioToRhythm" class="Feature">Convert Audio to Rhythm</a></li>
+			
+				<li><a href="/MusiciansCompanion/DrumMachine" class="Feature">DrumMachine</a></li>
+			</ul>
+		</div>
 	</body>
 </html>

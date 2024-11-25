@@ -1,19 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 	<head>
+		<link rel="stylesheet" th:href="@{/mainstyle.css}">
+		<link rel="stylesheet" th:href="@{/challengeDisplay.css}">
 	</head>
 	<body>
-		<h1>Chord Challenge</h1>
-		<a href="/MusiciansCompanion">Home</a>
-		<a href="/MusiciansCompanion/ChordChallengeGenerator">Back</a>
+		<h1 class="title">Chord Challenge</h1>
 		
-		<p th:text="'Chord: ' + ${chordChallenge.root} + ' ' + ${chordChallenge.chordType.chordType}">
-		<p th:text="'Inversion: ' + ${chordChallenge.inversion}">
+		<div class="button-container">
+			<a href="/MusiciansCompanion" class="home-button">Home</a>
+			<a href="/MusiciansCompanion/ChordChallengeGenerator" class="back-button">Back</a>
+		</div>
+
+		<div class="results">
+			<p id="chord" th:text="'Chord: ' + ${chordChallenge.root} + ' ' + ${chordChallenge.chordType.chordType}">
+			<p id="inversion" th:text="'Inversion: ' + ${chordChallenge.inversion}">
 		
-		<p th:if="${chordChallenge.type} == 'GUITAR'" th:text="'Root String: ' + ${chordChallenge.num}">
-		<p th:if="${chordChallenge.type} == 'KEYBOARD'" th:text="'Octave: ' + ${chordChallenge.num}">
-		
-		<p>Note that not all inversion and root string/octave combinations will be possible with only three adjacent notes. For example, if you are on the root inversion at the top of your range, you 
-		may not be able to play all those notes at once. You may choose to arpeggiate them, or play them lower with a root an octave lower and your target root remaining on the target octave/string.</p>
+			<p id="root-string" th:if="${chordChallenge.type} == 'GUITAR'" th:text="'Root String: ' + ${chordChallenge.num}">
+			<p id="octave-number" th:if="${chordChallenge.type} == 'KEYBOARD'" th:text="'Octave: ' + ${chordChallenge.num}">
+		</div>
 	</body>
 </html>

@@ -1,10 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 	<head>
+		<link rel="stylesheet" th:href="@{/mainstyle.css}">
+		<link rel="stylesheet" th:href="@{/formStyles.css}">
 	</head>
 	<body>
 		<h1>ChallengeGenerator</h1>
-		<a href="/MusiciansCompanion">Back</a>
+		
+		<div class="button-container">
+			<a href="/MusiciansCompanion" class="back-button">Back</a>
+		</div>
 		
 		<form th:action="@{/MusiciansCompanion/Challenge}" th:object="${ChallengeSettings}" method="post">
 			<div class="Genres">

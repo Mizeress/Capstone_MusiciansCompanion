@@ -1,0 +1,141 @@
+/* metronomeStyles.css - Dark Mode */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+button {
+    display: inline-block;
+    background-color: #bb86fc;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #9a67ea;
+    transform: scale(1.1);
+}
+
+#start-stop {
+    margin-top: 20px;
+    background-image: linear-gradient(135deg, #bb86fc 25%, #9a67ea 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 1.5em;
+    font-family: Georgia;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Make the button round */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#start-stop:before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4), rgba(255,255,255,0) 70%);
+    transition: transform 0.3s ease;
+    transform: scale(0);
+    z-index: 0;
+}
+
+#start-stop:hover:before {
+    transform: scale(1);
+}
+
+#start-stop span {
+    position: relative;
+    z-index: 1;
+}
+
+.tempo-controls {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.tempo-change {
+    background-color: #03dac6;
+    margin: 0 5px;
+}
+
+.tempo-change:hover {
+    background-color: #00c4b4;
+}
+
+.tempo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px; /* Added margin to space it out from buttons */
+}
+
+#tempo-slider {
+    width: 200px;
+    margin: 10px 0;
+}
+
+#tempo-display {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.beatsPerBar {
+    margin: 20px 0;
+}
+
+.beatsPerBar label {
+    font-weight: bold;
+}
+
+#beatsPerBar-Input {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #ffffff;
+    margin-left: 10px;
+}
+
+#emphasis-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#emphasis-container input[type="checkbox"] {
+    margin: 5px;
+}
+
+#emphasis-container label {
+    margin: 5px 10px;
+    font-weight: bold;
+}

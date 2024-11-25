@@ -1,0 +1,99 @@
+/* challengeDisplay.css - Dark Mode */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, .title {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+a, .home-button, .back-button {
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+a:hover, .home-button:hover, .back-button:hover {
+    text-decoration: underline;
+}
+
+/* Flex Container for Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;  /* Space between buttons */
+    margin: 20px 0;
+}
+
+/* Home Button Styles */
+.home-button {
+    background-color: #bb86fc;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #9a67ea;
+}
+
+/* Back Button Styles */
+.back-button {
+    background-color: #bb86fc;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #9a67ea;
+}
+
+/* Results Container */
+.results {
+    background-color: #1e1e1e;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.results p {
+    background-color: #333;
+    padding: 10px;
+    margin: 10px 10%; /* Equal margin on left and right */
+    border-radius: 5px;
+    width: 80%; /* Adjust width to fit margins */
+}
+
+/* Note Styles */
+.Note p {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: inline;
+    color: #bb86fc;
+}

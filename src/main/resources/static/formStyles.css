@@ -1,0 +1,106 @@
+/* formStyles.css - Dark Mode */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Inline Radio Buttons */
+.inline-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.inline-radio input[type="radio"] {
+    margin-right: 10px;
+    margin-top: 0;
+    position: relative;
+    top: -2px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    margin-left: 20px;
+}
+
+input[type="number"] {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #ffffff;
+}
+
+input[type="number"], 
+input[type="text"] { 
+	width: calc(100% - 20px); 
+	padding: 10px; margin: 10px 0; 
+	border-radius: 5px; 
+	border: 1px solid #ccc; 
+	background-color: #333; 
+	color: #ffffff; }
+
+button {
+    display: inline-block;
+    background-color: #bb86fc;
+    color: #121212;
+    font-family: Arial;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #9a67ea;
+}
+
+button.SelectAll {
+    background-color: #03dac6;
+    margin-left: 10px;
+}
+
+button.SelectAll:hover {
+    background-color: #00c4b4;
+}
+
+/* Container Styles */
+.Genres, .Modes, .Moods, .Notes, .TimeSigs {
+    margin-bottom: 20px;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
