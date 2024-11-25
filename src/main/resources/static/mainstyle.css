@@ -1,0 +1,133 @@
+/* mainstyle.css - Dark Mode */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+#Title {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+    font-family: Georgia;
+}
+
+.completed-features, .incomplete-features {
+    margin: 20px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.feature {
+    margin: 10px 0;
+}
+
+.feature a {
+    text-decoration: none;
+    color: #bb86fc;
+    font-weight: bold;
+}
+
+.feature a:hover {
+    text-decoration: underline;
+}
+
+.incomplete-features h2 {
+    color: #a1a1a1;
+}
+
+.incomplete-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.incomplete-features li {
+    margin: 10px 0;
+}
+
+.incomplete-features li a {
+    text-decoration: none;
+    color: #ff79b0;
+    font-weight: bold;
+}
+
+.incomplete-features li a:hover {
+    text-decoration: underline;
+}
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+a {
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* mainstyle.css - Dark Mode */
+
+/* Flex Container for Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;  /* Space between buttons */
+    margin: 20px 0;
+}
+
+/* Home Button Styles */
+.home-button {
+    background-color: #bb86fc;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #9a67ea;
+    text-decoration: underline;
+}
+
+/* Back Button Styles */
+.back-button {
+    background-color: #bb86fc;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #9a67ea;
+    text-decoration: underline;
+}
+

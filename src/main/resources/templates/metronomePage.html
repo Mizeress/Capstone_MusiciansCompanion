@@ -3,12 +3,30 @@
     <head>
         <meta lang="en">
         <title>My Metronome</title>
+        <link rel="stylesheet" th:href="@{/mainstyle.css}">
+        <link rel="stylesheet" th:href="@{/metronomeStyles.css}"> 
     </head>
 
     <body>
         <h1>Metronome</h1>
 
-        <button id="start-stop">Start/Stop</button>
+		<div class="button-container">
+			<a href="/MusiciansCompanion" class="home-button">Home</a>
+		</div>
+
+        <button id="start-stop" onclick="startStop()"><span>Start</span></button>
+        
+        <script>
+        	function startStop() {
+        		var button = document.getElementById("start-stop");
+        		
+        		if(button.innerText == "Start") {
+        			button.innerText = "Stop";
+        		} else {
+        			button.innerText = "Start";
+        		}
+        	}
+        </script>
 
         <div class="tempo-controls">
             <button class="tempo-change" data-change="-5">-5</button>
@@ -34,6 +52,7 @@
 					
 		</div>
 			
+		
 			
 
         <script th:src="@{/metronome.js}"></script>

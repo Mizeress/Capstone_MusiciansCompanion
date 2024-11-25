@@ -1,6 +1,6 @@
 class Metronome {
 
-    constructor(tempo = 120, beatsPerBar = 6) {
+    constructor(tempo = 120, beatsPerBar = 4) {
         this.audioContext = null;
 
         this.notesInQueue = [];

@@ -1,8 +1,19 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 	<head>
+		<link rel="stylesheet" th:href="@{/mainstyle.css}">
+		<link rel="stylesheet" th:href="@{/formStyles.css}">
 	</head>
 	<body>
+	
+		<h1>Find Chord Voicings</h1>
+	
+		<div class="button-container">
+			<a href="/MusiciansCompanion" class="home-button">Home</a>
+		</div>
+	
+		
+	
 		<form th:action="@{/MusiciansCompanion/ChordVoicing}" th:object="${settings}" method="post">
 		
 			<label for="numFrets">Number of Frets on your Guitar: </label>

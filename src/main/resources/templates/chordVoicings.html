@@ -1,21 +1,40 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 	<head>
+		<link rel="stylesheet" th:href="@{/mainstyle.css}">
+		<link rel="stylesheet" th:href="@{/challengeDisplay.css}">
 	</head>
 	<body>
 		<h1>Chord Voicings</h1>
 	
 		<!-- TODO add some JS to integrate with the omnibrain chord chart API to display chord charts for voicings -->
 		
-		<div class="chordVoicing" th:each="chord,itrStat: ${chords}">
-			<h2 th:text="'Chord ' + ${itrStat.count}"></h2>
-		
-			<div class="note" th:each="note: ${chord.chord}">
-				<p th:text="'String: ' + ${note.note[0]}"></p>
-				<p th:text="'Fret ' + ${note.note[1]}"></p>
-				<br>
-			</div>
-		
+		<div class="button-container">
+			<a href="/MusiciansCompanion" class="home-button">Home</a>
+			<a href="/MusiciansCompanion/FindChordVoicings" class="back-button">Back</a>
 		</div>
+		
+		<div class="results">
+			<div class="chordVoicing" th:each="chord,itrStat: ${chords}">
+				<h2 th:text="'Chord ' + ${itrStat.count}"></h2>
+		
+				<div class="note" th:each="note: ${chord.chord}">
+					<p class="string" th:text="${note.note[0]}"></p>
+					<p class="fret" th:text="'Fret ' + ${note.note[1]}"></p>
+					<br>
+				</div>
+		
+			</div>
+		</div>
+		
+		<script>
+			//Converts the indexed string number into the actual string number
+			var stringNums = document.getElementsByClassName("string");
+			
+			for(var i = 0; i < stringNums.length; i++) {
+				stringNums[i].textContent = 'String: ' + (6 - Number(stringNums[i].textContent)).toString();
+			}
+		</script>
+		
 	</body>
 </html>

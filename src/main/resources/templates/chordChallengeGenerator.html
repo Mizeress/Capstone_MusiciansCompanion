@@ -1,19 +1,27 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 	<head>
+		<link rel="stylesheet" th:href="@{/mainstyle.css}">
+		<link rel="stylesheet" th:href="@{/formStyles.css}">
 	</head>
 	<body>
 		<h1>Chord Challenge</h1>
-		<a href="/MusiciansCompanion">Home</a>
+		<div class="button-container">
+			<a href="/MusiciansCompanion" class="home-button">Home</a>
+		</div>
 		
 		<form th:action="@{/MusiciansCompanion/ChordChallenge}" th:object="${chordChallengeSettings}" method="post">
-			<label for="guitar">Guitar</label>
-			<input type="radio" id="guitar" name="type" th:field="${chordChallengeSettings.type}" value="GUITAR">
+			<div class="inline-radio">
+				<label for="guitar">Guitar</label>
+				<input type="radio" id="guitar" name="type" th:field="${chordChallengeSettings.type}" value="GUITAR">
+			</div>
 			
 			<br>
 			
-			<label for="keyboard">Keyboard</label>
-			<input type="radio" id="keyboard" name="type" th:field="${chordChallengeSettings.type}" value="KEYBOARD">
+			<div class="inline-radio">
+				<label for="keyboard">Keyboard</label>
+				<input type="radio" id="keyboard" name="type" th:field="${chordChallengeSettings.type}" value="KEYBOARD">
+			</div>
 			
 			<br>
 		

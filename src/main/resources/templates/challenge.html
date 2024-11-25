@@ -1,20 +1,27 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 	<head>
+		<link rel="stylesheet" th:href="@{/mainstyle.css}">
+		<link rel="stylesheet" th:href="@{/challengeDisplay.css}">
 	</head>
 	<body>
 		<h1>Challenge</h1>
-		<a href="/MusiciansCompanion">Home</a>
 		
-		<p th:text="'Genre: ' + ${challenge.genre.name}">
-		<p th:text="'Mode: ' + ${challenge.Mode.name}">
-		<p th:text="'Mood/Emotion: ' + ${challenge.mood.name}">
+		<div class="button-container">
+			<a href="/MusiciansCompanion" class="home-button">Home</a>
+			<a href="/MusiciansCompanion/ChallengeGenerator" class="back-button">Back</a>
+		</div>
 		
-		<div th:if="${challenge.homeNote.isSharp}"><p th:text="${challenge.homeNote.noteLetter} + '#'"/></div>
-		<div th:if="${challenge.homeNote.isFlat}"><p th:text="${challenge.homeNote.noteLetter} + 'b'"/></div>
-		<div th:unless="${challenge.homeNote.isSharp || challenge.homeNote.isFlat}" ><p th:text="${challenge.homeNote.noteLetter}"/></div>
+		<div class="results">
+			<p th:text="'Genre: ' + ${challenge.genre.name}">
+			<p th:text="'Mode: ' + ${challenge.Mode.name}">
+			<p th:text="'Mood/Emotion: ' + ${challenge.mood.name}">
 		
-		<p th:text="'Time Signature: ' + ${challenge.timeSig.beatPerMeasure} + '/' + ${challenge.timeSig.beatNote}">
+			<div th:if="${challenge.homeNote.isSharp}" class="Note"><p th:text="${challenge.homeNote.noteLetter} + '#'"/></div>
+			<div th:if="${challenge.homeNote.isFlat}" class="Note"><p th:text="${challenge.homeNote.noteLetter} + 'b'"/></div>
+			<div th:unless="${challenge.homeNote.isSharp || challenge.homeNote.isFlat}" class="Note" ><p th:text="${challenge.homeNote.noteLetter}"/></div>
 		
+			<p th:text="'Time Signature: ' + ${challenge.timeSig.beatPerMeasure} + '/' + ${challenge.timeSig.beatNote}">
+		</div>
 	</body>
 </html>
