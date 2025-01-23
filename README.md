@@ -3,3 +3,5 @@ This is my Capstone Project for my Associates of Science at Columbus State Commu
 This is a Work In Progress and some features may be incomplete or nonfunctional.
 
 To run the app, open it in Eclipse, run the main file, and go to the MusiciansCompanion endpoint at your localhost address.
+
+NEXT STEP: Add form validation
