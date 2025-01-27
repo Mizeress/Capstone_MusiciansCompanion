@@ -2,6 +2,12 @@ This is my Capstone Project for my Associates of Science at Columbus State Commu
 
 This is a Work In Progress and some features may be incomplete or nonfunctional.
 
-To run the app, open it in Eclipse, run the main file, and go to the MusiciansCompanion endpoint at your localhost address.
+To run the app, open it in Eclipse, run the application.java file, and go to the MusiciansCompanion endpoint at your localhost address.
 
-NEXT STEP: Add form validation
+TODO: 
+-Add form validation
+-Make ChallengeSettings pass to the client so the challenge page can reload and generate anoother challenge rather than creating an error
+
+Low priority
+-Create a login and way to save user preferences. 
+-Create a way (incorporating metronome functionality) to follow a chord progression as it plays. E.G 4 bars of Amaj, 2 bars of Dmaj. Show the current chord, how long it's played, and what's coming up. Possibly use this format: Amaj | Amaj | Amaj | Amaj | Dmaj | Dmaj
