@@ -1,6 +1,6 @@
 # Musicians Companion
 ## Description
-Capstone Project for Associates of Applied Science at Columbus State Community College. This app contains what I could finish in a single semester and nothing more. 
+Capstone Project for Associates of Applied Science at Columbus State Community College. This app contains what I could finish in a single semester and nothing more. Also, note that this project is old and is not representative of my current abilities!
 
 This is a Musician's Utility App. It contains features like a random musical challenge generator, a metronome, and a feature that accepts a guitar tuning and a chord and shows every way you could play a chord with those notes across the fretboard of a guitar.
 
