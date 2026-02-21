@@ -4,12 +4,15 @@ Capstone Project for Associates of Applied Science at Columbus State Community C
 
 This is a Musician's Utility App. It contains features like a random musical challenge generator, random chord & inversion generator, a metronome w/customizable beats per bar and beat emphasis, and a feature that accepts a guitar tuning and a chord and shows every way you could play a chord with those notes across the fretboard of a guitar.
 
-## Technologies Used
+## Technologies/Workflows Used
 - Spring Boot
 - MVC Architecture
 - HTML/CSS/JS
 - Thymeleaf
-- H2 Database 
+- H2 Database
+- Lomboc
+- Maven
+- Kanban Board w/cards and prioritized features
 
 ## Note: Main App endpoint is at http://localhost:8080/MusiciansCompanion
 
